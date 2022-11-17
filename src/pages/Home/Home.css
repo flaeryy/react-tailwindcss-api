@@ -1,0 +1,23 @@
+.slideshowDot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: #ef5628;
+  cursor: pointer;
+  outline: 0;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  cursor: pointer;
+  margin: 15px 7px 0px;
+}
+
+.active {
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-color: #ef5628;
+}
