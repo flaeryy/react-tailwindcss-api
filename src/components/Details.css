@@ -1,0 +1,4 @@
+.bullet li {
+  margin: 1rem;
+  list-style-type: circle;
+}

@@ -8,31 +8,28 @@ function Category() {
       <div className="flex flex-wrap">
         <Link
           to={"/recipes/apple"}
-          className="flex border-2 border-red-500 w-20 h-12 rounded-r-lg mb-4 mr-4 cursor-pointer"
+          className="flex border-[1px] border-red-500 w-20 h-12 rounded-r-lg mb-4 mr-4 cursor-pointer"
         >
-          <p className="m-auto"> #Apple </p>
+          <p className="m-auto text-red-500"> Apple </p>
         </Link>
         <Link
           to={"/recipes/banana"}
-          className="flex border-2 border-red-500 w-20 h-12 rounded-r-lg mb-4  mr-4 cursor-pointer"
+          className="flex border-[1px] border-yellow-500 w-20 h-12 rounded-r-lg mb-4  mr-4 cursor-pointer"
         >
-          <p className="m-auto"> #Banana </p>
+          <p className="m-auto text-yellow-500"> Banana </p>
         </Link>
         <Link
           to={"/recipes/pineapple"}
-          className="flex border-2 border-red-500 w-20 h-12 rounded-r-lg mb-4  mr-4 cursor-pointer"
+          className="flex border-[1px] border-rose-900 w-20 h-12 rounded-r-lg mb-4  mr-4 cursor-pointer"
         >
-          <p className="m-auto"> #Pineapple </p>
+          <p className="m-auto text-rose-900"> Pineapple </p>
         </Link>
-        <div className="flex border-2 border-red-500 w-20 h-12 rounded-r-lg mb-4  mr-4 cursor-pointer">
-          <p className="m-auto"> #Protein </p>
-        </div>
-        <div className="flex border-2 border-red-500 w-20 h-12 rounded-r-lg mb-4  mr-4 cursor-pointer">
-          <p className="m-auto"> #Protein </p>
-        </div>
-        <div className="flex border-2 border-red-500 w-20 h-12 rounded-r-lg mb-4  mr-4 cursor-pointer">
-          <p className="m-auto"> #Protein </p>
-        </div>
+        <Link
+          to={"/recipes"}
+          className="flex border-[1px] border-green-600 w-20 h-12 rounded-r-lg mb-4  mr-4 cursor-pointer"
+        >
+          <p className="m-auto"> Others </p>
+        </Link>
       </div>
     </div>
   );

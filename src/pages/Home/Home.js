@@ -17,6 +17,9 @@ import apple_men from "../../assets/apple_men.png";
 import pineapple_men from "../../assets/pineapple_men.png";
 import pineappleHomeSection from "../../assets/sliced-pineapple-with-juice.jpg";
 import png_apple from "../../assets/png_apple.png";
+import heartSvg from "../../assets/heartSvg.svg";
+import fruitsFullScreen from "../../assets/fruitsFullScreen.png";
+
 function Home() {
   const delay = 2500;
   const [index, setIndex] = React.useState(0);
@@ -111,7 +114,9 @@ function Home() {
         <div className="flex flex-col items-center text-center py-10 px-7 w-full  lg:flex-row lg:justify-between">
           <div className="p-7">
             <img src={iconHeart} className="h-14 m-auto" />
-            <h3 className="text-xl font-bold">
+            <img src={heartSvg} className="h-14 m-auto" />
+
+            <h3 className="text-xl font-bold ">
               Why is it important
               <br /> to eat fruits?
             </h3>
@@ -226,8 +231,11 @@ function Home() {
             </p>
           </div>
 
-          <div className="w-full justify-center">
-            <img src={homeFruits} className="m-auto w-60 h-60" />
+          <div className="w-full lg:w-1/2 lg:h-98 lg:m-auto justify-center">
+            <img
+              src={fruitsFullScreen}
+              className="m-auto w-full h-full object-cover"
+            />
           </div>
         </div>
         {/*End thirt section */}
