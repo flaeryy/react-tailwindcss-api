@@ -15,7 +15,6 @@ function Navbar() {
   };
 
   const handleScroll = () => {
-    console.log("ehre");
     const currentScrollPos = window.scrollY;
 
     if (currentScrollPos > prevScrollPos) {
