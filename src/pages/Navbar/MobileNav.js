@@ -4,7 +4,7 @@ function MobileNav({ isOpen, setOpen, darkMode, isDarkMode }) {
   return (
     <div
       className={`z-10 bg-white absolute dark:bg-slate-900 top-0 right-0 text-center h-screen w-full  md:hidden ${
-        isOpen ? "menu" : "opacity-0"
+        isOpen ? "menu" : "hidden"
       }`}
     >
       <ul className="my-28 ">
