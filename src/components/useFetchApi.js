@@ -8,20 +8,14 @@ function useFetchApi(fruits, recipesDetails) {
   const [error, setError] = useState(false);
 
   const getFruit = async () => {
-    console.log(fruits);
     const check = localStorage.getItem(fruits);
 
-    console.log(check);
-
     if (check) {
-      console.log("14");
-      // console.log(JSON.parse(check));
       setData(JSON.parse(check));
       setLoading(true);
     } else {
-      console.log("19");
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=d59cfdd91459422f8f5f99ef909d99e4&query=${fruits}`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${fruits}`
       );
       if (api.ok) {
         const data1 = await api.json();
@@ -35,28 +29,20 @@ function useFetchApi(fruits, recipesDetails) {
   };
 
   const getRecipesDetails = async () => {
-    console.log(fruits);
     const check = localStorage.getItem(fruits);
 
-    console.log(check);
-
     if (check !== null) {
-      console.log("14313131313");
       // console.log(JSON.parse(check));
       setData(JSON.parse(check));
       setLoading(true);
     } else {
-      console.log("19");
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/${fruits}/information?apiKey=d4b3186a0019486882a97fabf3820215`
+        `https://api.spoonacular.com/recipes/${fruits}/information?apiKey=${process.env.REACT_APP_API_KEY}`
       );
-      console.log("api");
-      console.log(api.ok);
 
       if (api.ok) {
         const data1 = await api.json();
-        console.log("1212");
-        console.log(data1);
+
         localStorage.setItem(fruits, JSON.stringify(data1));
         setData(data1);
         setLoading(true);

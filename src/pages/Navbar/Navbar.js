@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../assets/logo.png";
 import Hamburger from "hamburger-react";
 import MobileNav from "./MobileNav";
-import moonDarkMode from "../../assets/moonDarkMode.svg";
-import sunDarkMode from "../../assets/sunDarkMode.svg";
+
 function Navbar() {
   const [isOpen, setOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(
@@ -13,11 +11,11 @@ function Navbar() {
   const [visible, setVisible] = useState(true);
 
   const darkMode = () => {
-    console.log("click");
     setIsDarkMode(!isDarkMode);
   };
 
   const handleScroll = () => {
+    console.log("ehre");
     const currentScrollPos = window.scrollY;
 
     if (currentScrollPos > prevScrollPos) {
@@ -32,17 +30,10 @@ function Navbar() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    console.log("useEffect");
-    console.log(isDarkMode);
-
     if (isDarkMode) {
       localStorage.setItem("darkMode", "dark");
     } else localStorage.setItem("darkMode", "light");
 
-    console.log(isDarkMode);
-    //return () => window.removeEventListener("scroll", handleScroll);
-
-    // localStorage.setItem("darkMode", false);
     isDarkMode
       ? document.body.classList.add("dark")
       : document.body.classList.remove("dark");
@@ -50,12 +41,12 @@ function Navbar() {
     isOpen
       ? document.body.classList.add("overflow-hidden")
       : document.body.classList.remove("overflow-hidden");
-  }, [isOpen, isDarkMode, prevScrollPos, darkMode]);
+  }, [isOpen, isDarkMode, darkMode, prevScrollPos]);
   return (
     <nav
       className={`flex lg:px-20 sticky ${
         visible ? "top-0" : ""
-      } bg-white z-50 `}
+      } bg-white  dark:bg-slate-900 dark:text-slate-400 z-50  `}
     >
       <div className="flex justify-between w-full z-20">
         <div className="m-5 flex items-center py-5">
@@ -73,7 +64,7 @@ function Navbar() {
           <ul className="flex gap-x-10 relative">
             <li className="relative flex items-center">
               <a
-                className="before:content-[''] before:h-1 before:bottom-2 before:absolute before:transition-all before:duration-300 before:bg-red-600 before:w-full before:opacity-40 hover:before:h-2/3"
+                className="before:content-[''] before:h-[2px] before:bottom-1 before:absolute before:transition-all before:duration-300 before:bg-red-600 before:w-full before:opacity-40 hover:before:h-2/3"
                 href="/"
               >
                 Home
@@ -82,7 +73,7 @@ function Navbar() {
 
             <li className="relative flex items-center">
               <a
-                className="before:content-[''] before:h-1 before:bottom-2 before:absolute before:transition-all before:duration-300 before:bg-red-600 before:w-full before:opacity-40 hover:before:h-2/3"
+                className="before:content-[''] before:h-[2px] before:bottom-1 before:absolute before:transition-all before:duration-300 before:bg-red-600 before:w-full before:opacity-40 hover:before:h-2/3"
                 href="/fruit-dose"
               >
                 Fruit Dose
@@ -91,8 +82,8 @@ function Navbar() {
 
             <li className="relative flex items-center">
               <a
-                className="before:content-[''] before:h-1 before:bottom-2 before:absolute before:transition-all before:duration-300 before:bg-red-600 before:w-full before:opacity-40 hover:before:h-2/3"
-                href="/recipes"
+                className="before:content-[''] before:h-[2px] before:bottom-1 before:absolute before:transition-all before:duration-300 before:bg-red-600 before:w-full before:opacity-40 hover:before:h-2/3"
+                href="/recipes/fruits"
               >
                 {" "}
                 Recipes
@@ -101,7 +92,7 @@ function Navbar() {
 
             <li className="relative flex items-center">
               <a
-                className="before:content-[''] before:h-1 before:bottom-2 before:absolute before:transition-all before:duration-300 before:bg-red-600 before:w-full before:opacity-40 hover:before:h-2/3"
+                className="before:content-[''] before:h-[2px] before:bottom-1 before:absolute before:transition-all before:duration-300 before:bg-red-600 before:w-full before:opacity-40 hover:before:h-2/3"
                 href="/about-us"
               >
                 {" "}
@@ -111,15 +102,15 @@ function Navbar() {
 
             <li
               onClick={darkMode}
-              className="flex m-auto items-center bg-gray-500 dark:bg-slate-900 relative w-14 h-6 justify-between rounded-3xl cursor-pointer "
+              className="flex m-auto items-center bg-gray-400 dark:bg-black relative w-14 h-6 justify-between rounded-3xl cursor-pointer "
             >
               <div
-                className={`absolute w-6 h-6 bg-red-400 rounded-full transition duration-500 ease-in-out ${
+                className={`absolute w-6 h-6 bg-slate-700 opacity-50 dark:bg-slate-300 rounded-full transition duration-500 ease-in-out ${
                   isDarkMode ? "translate-x-8" : "translate-x-0"
                 }`}
               ></div>
               <svg
-                className="relative h-4 w-4"
+                className="relative h-4 w-4 ml-1"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -140,8 +131,7 @@ function Navbar() {
                 />
               </svg>
               <svg
-                c
-                className="relative h-4 w-4"
+                className="relative h-4 w-4 mr-1"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"

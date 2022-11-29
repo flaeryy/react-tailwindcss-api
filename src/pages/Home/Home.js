@@ -1,26 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { HashLink } from "react-router-hash-link";
 import "./Home.css";
-import Kiwi from "../../assets/Kiwi.jpg";
-import Lemon from "../../assets/Lemon.jpg";
-import Mandarin from "../../assets/Mandarin.jpg";
-import Pineapple from "../../assets/Pineapple.jpg";
-import banana_men from "../../assets/banana_men.png";
-import Pineapple_men from "../../assets/Pineapple_men.jpg";
-import lub from "../../assets/lub.jpg";
-import homeFruits from "../../assets/homeFruits.png";
-import iconHeart from "../../assets/iconHeart.png";
-import Cup from "../../assets/Cup.png";
 import png_pineapple from "../../assets/png_pineapple.png";
 import png_banana from "../../assets/png_banana.png";
-import apple_men from "../../assets/apple_men.png";
-import pineapple_men from "../../assets/pineapple_men.png";
-import pineappleHomeSection from "../../assets/sliced-pineapple-with-juice.jpg";
 import png_apple from "../../assets/png_apple.png";
-import heartSvg from "../../assets/heartSvg.svg";
 import fruitsFullScreen from "../../assets/fruitsFullScreen.png";
+import Heart from "../../logo/Heart.js";
+import Cup from "../../logo/Cup.js";
 
 function Home() {
+  const [isDarkMode, setIsDarkMode] = useState(
+    localStorage.getItem("darkMode") === "dark" ? true : false
+  );
   const delay = 2500;
   const [index, setIndex] = React.useState(0);
   const timeoutRef = React.useRef(null);
@@ -41,7 +32,8 @@ function Home() {
     else refApple.current?.scrollIntoView({ behavior: "smooth" });
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
+    document.title = "Fruits | Home";
     resetTimeout();
     timeoutRef.current = setTimeout(
       () =>
@@ -88,7 +80,7 @@ function Home() {
       />
       <button
         onClick={() => handleScroll(post.id)}
-        className="my-4 hover:bg-gray-300 hover:font-bold rounded-full p-2 border-2 bg-white "
+        className="my-4 hover:bg-gray-300 rounded-full p-2 border-2 dark:bg-slate-800 dark:hover:bg-slate-900 bg-white "
       >
         {post.content}
       </button>
@@ -113,16 +105,14 @@ function Home() {
         </div>
         <div className="flex flex-col items-center text-center py-10 px-7 w-full  lg:flex-row lg:justify-between">
           <div className="p-7">
-            <img src={iconHeart} className="h-14 m-auto" />
-            <img src={heartSvg} className="h-14 m-auto" />
-
+            <Heart />
             <h3 className="text-xl font-bold ">
               Why is it important
               <br /> to eat fruits?
             </h3>
             <div className="my-4">
               <HashLink
-                className="text-lg text-green-underline underline cursor-pointer"
+                className="text-lg text-green-underline  underline cursor-pointer"
                 smooth
                 to="/fruit-dose#heart"
               >
@@ -131,7 +121,7 @@ function Home() {
             </div>
           </div>
           <div className="p-7">
-            <img src={Cup} className="h-14 m-auto" />
+            <Cup />
             <h3 className="text-xl font-bold ">
               How much fruit <br /> do you need?
             </h3>
@@ -241,14 +231,17 @@ function Home() {
         {/*End thirt section */}
       </section>
 
-      <section className="my-5 bg-grey-bg lg:w-1/2" ref={refPineapple}>
+      <section
+        className="my-5 bg-grey-bg dark:bg-slate-700 lg:w-1/2"
+        ref={refPineapple}
+      >
         {/*Fourt Section Fruits facts*/}
         <div className="relative">
           <h1 className="text-4xl font-bold overline decoration-yellow-600 py-4">
             Pineapple
           </h1>
           <div className="relative text-base">
-            <div className="absolute left-0 -ml-0.5 w-0.5 h-full bg-gray-600"></div>
+            <div className="absolute left-0 ml-0.5 w-0.5 h-full bg-yellow-600"></div>
             <p className="m-4 text-lg lg:w-1/2">
               Eating fruits and vegetables of all types has long been associated
               with a reduced risk of many lifestyle-related health conditions.
@@ -259,7 +252,7 @@ function Home() {
           </div>
           <div className="m-4 lg:absolute lg:left-1/2">
             <div className="flex ">
-              <div className="flex  bg-slate-200 w-28 h-28 justify-center items-center rounded-br-3xl">
+              <div className="flex  bg-slate-200 dark:bg-slate-900 w-28 h-28 justify-center items-center rounded-br-3xl">
                 <p>Anti-Cancer</p>
               </div>
               <div className="flex bg-yellow-600 w-28 h-28 justify-center items-center rounded-br-3xl">
@@ -270,7 +263,7 @@ function Home() {
               <div className="flex bg-yellow-600 w-28 h-28 justify-center items-center rounded-br-3xl">
                 Weight Loss
               </div>
-              <div className="flex bg-slate-200  w-28 h-28 justify-center items-center rounded-br-3xl">
+              <div className="flex bg-slate-200 dark:bg-slate-900  w-28 h-28 justify-center items-center rounded-br-3xl">
                 Boost Immunity
               </div>
             </div>
@@ -279,7 +272,7 @@ function Home() {
             <img src={png_pineapple} className="m-auto w-60 h-60" />
           </div>
           <div className="relative text-base">
-            <div className="absolute left-0 -ml-0.5 w-0.5 h-full bg-gray-600"></div>
+            <div className="absolute left-0 ml-0.5 w-0.5 h-full bg-yellow-600"></div>
             <p className="m-4 text-lg lg:w-1/2">
               It also promotes a healthy complexion and hair, increased energy,
               and an overall lower weight. The following are possible benefits
@@ -291,16 +284,16 @@ function Home() {
       {/*end Four Section Fruits facts*/}
 
       <section
-        className="my-4 bg-grey-bg flex lg:w-1/2 lg:relative lg:left-1/2"
+        className="my-4 bg-grey-bg dark:bg-slate-700 flex lg:w-1/2 lg:relative lg:left-1/2"
         ref={refBanana}
       >
         {/*Five Section Fruits facts*/}
         <div className="relative">
-          <h1 className="text-4xl font-bold overline decoration-yellow-300 py-4">
+          <h1 className="text-4xl font-bold overline decoration-yellow-500 py-4">
             Banana
           </h1>
           <div className="relative text-base">
-            <div className="absolute left-0 -ml-0.5 w-0.5 h-full bg-gray-600"></div>
+            <div className="absolute left-0 ml-0.5 w-0.5 h-full bg-yellow-500"></div>
             <p className="m-4 text-lg lg:w-1/2">
               Did you know that in old English, the word “apple” meant “fruit”?
               Fruits are an indispensable part of a balanced diet and bananas
@@ -310,18 +303,18 @@ function Home() {
           </div>
           <div className="m-4 lg:absolute lg:left-1/2">
             <div className="flex ">
-              <div className="flex  bg-slate-200 w-28 h-28 justify-center items-center rounded-br-3xl">
+              <div className="flex  bg-slate-200 dark:bg-slate-900 w-28 h-28 justify-center items-center rounded-br-3xl">
                 <p>Reduces Stress</p>
               </div>
-              <div className="flex bg-yellow-300 w-28 h-28 justify-center items-center rounded-br-3xl">
+              <div className="flex bg-yellow-500 w-28 h-28 justify-center items-center rounded-br-3xl">
                 Protein
               </div>
             </div>
             <div className="flex">
-              <div className="flex bg-yellow-300 w-28 h-28 justify-center items-center rounded-br-3xl">
+              <div className="flex bg-yellow-500 w-28 h-28 justify-center items-center rounded-br-3xl">
                 Skin Conditions
               </div>
-              <div className="flex bg-slate-200  w-28 h-28 justify-center items-center rounded-br-3xl">
+              <div className="flex bg-slate-200 dark:bg-slate-900  w-28 h-28 justify-center items-center rounded-br-3xl">
                 Prevent Anemia
               </div>
             </div>
@@ -330,7 +323,7 @@ function Home() {
             <img src={png_banana} className="m-auto w-60 h-60" />
           </div>
           <div className="relative text-base">
-            <div className="absolute left-0 -ml-0.5 w-0.5 h-full bg-gray-600"></div>
+            <div className="absolute left-0 ml-0.5 w-0.5 h-full bg-yellow-500"></div>
             <p className="m-4 text-lg lg:w-1/2">
               Bananas are packed with important nutrients that are needed for a
               healthy body and mind. In addition to being an excellent source of
@@ -342,14 +335,17 @@ function Home() {
       </section>
       {/*end Five Section Fruits facts*/}
 
-      <section className="my-4 bg-grey-bg lg:w-1/2" ref={refApple}>
+      <section
+        className="my-4 bg-grey-bg dark:bg-slate-700 lg:w-1/2"
+        ref={refApple}
+      >
         {/*Six Section Fruits facts*/}
         <div className="relative">
-          <h1 className="text-4xl font-bold overline decoration-green-500 py-4">
+          <h1 className="text-4xl font-bold overline decoration-green-800 py-4">
             Apple
           </h1>
           <div className="relative text-base">
-            <div className="absolute left-0 -ml-0.5 w-0.5 h-full bg-gray-600"></div>
+            <div className="absolute left-0 ml-0.5 w-0.5 h-full bg-green-800"></div>
             <p className="m-4 text-lg lg:w-1/2">
               Apples are the fruit of the tree known as Malus domestica. Today,
               many different types are grown worldwide, but they first
@@ -360,18 +356,18 @@ function Home() {
           </div>
           <div className="m-4 lg:absolute lg:left-1/2">
             <div className="flex ">
-              <div className="flex  bg-slate-200 w-28 h-28 justify-center items-center rounded-br-3xl">
+              <div className="flex  bg-slate-200 dark:bg-slate-900 w-28 h-28 justify-center items-center rounded-br-3xl">
                 <p>Weight Loss</p>
               </div>
-              <div className="flex bg-green-500 w-28 h-28 justify-center items-center rounded-br-3xl">
+              <div className="flex bg-green-800 w-28 h-28 justify-center items-center rounded-br-3xl">
                 Hydrates Skin
               </div>
             </div>
             <div className="flex">
-              <div className="flex bg-green-500 w-28 h-28 justify-center items-center rounded-br-3xl">
+              <div className="flex bg-green-800 w-28 h-28 justify-center items-center rounded-br-3xl">
                 Brightnes Skin
               </div>
-              <div className="flex bg-slate-200  w-28 h-28 justify-center items-center rounded-br-3xl">
+              <div className="flex bg-slate-200 dark:bg-slate-900 w-28 h-28 justify-center items-center rounded-br-3xl">
                 Heart Health
               </div>
             </div>
@@ -380,7 +376,7 @@ function Home() {
             <img src={png_apple} className="m-auto w-60 h-60" />
           </div>
           <div className="relative text-base">
-            <div className="absolute left-0 -ml-0.5 w-0.5 h-full bg-gray-600"></div>
+            <div className="absolute left-0 ml-0.5 w-0.5 h-full bg-green-800"></div>
             <p className="m-4 text-lg lg:w-1/2">
               What is the main nutrition found in apples? They’re are a good
               source of fiber, particularly the soluble, gelatinous

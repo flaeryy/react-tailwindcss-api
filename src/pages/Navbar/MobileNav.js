@@ -3,8 +3,8 @@ import React, { useState } from "react";
 function MobileNav({ isOpen, setOpen, darkMode, isDarkMode }) {
   return (
     <div
-      className={`z-10 bg-white absolute top-0 right-0 text-center h-screen w-full duration-700 ease-in-out md:hidden ${
-        isOpen ? "translate-x-0" : "translate-x-full"
+      className={`z-10 bg-white absolute dark:bg-slate-900 top-0 right-0 text-center h-screen w-full  md:hidden ${
+        isOpen ? "menu" : "opacity-0"
       }`}
     >
       <ul className="my-28 ">
@@ -17,21 +17,21 @@ function MobileNav({ isOpen, setOpen, darkMode, isDarkMode }) {
         </li>
 
         <li className="py-10">
-          <a href="/recipes"> Recipes</a>
+          <a href="/recipes/fruits"> Recipes</a>
         </li>
 
         <li className="py-10">
           <a href="/about-us"> About Us</a>
         </li>
 
-        <div className="flex py-10 m-auto items-center text-center">
-          <div className="flex">Switch theme:</div>
+        <div className="flex absolute m-5 py-10">
+          <div className="flex mr-4">Switch theme:</div>
           <div
             onClick={darkMode}
-            className="flex items-center bg-gray-500 dark:bg-slate-900 relative w-14 h-6 justify-between rounded-3xl cursor-pointer "
+            className="flex items-center bg-gray-400 dark:bg-black relative w-14 h-6 justify-between rounded-3xl cursor-pointer "
           >
             <div
-              className={`absolute w-6 h-6 bg-red-400 rounded-full transition duration-500 ease-in-out ${
+              className={`absolute w-6 h-6 bg-slate-700 opacity-50 dark:bg-slate-300 rounded-full transition duration-500 ease-in-out ${
                 isDarkMode ? "translate-x-8" : "translate-x-0"
               }`}
             ></div>
@@ -57,8 +57,7 @@ function MobileNav({ isOpen, setOpen, darkMode, isDarkMode }) {
               />
             </svg>
             <svg
-              c
-              className="relative h-4 w-4"
+              className="relative h-4 w-4 mr-1"
               width="24"
               height="24"
               viewBox="0 0 24 24"

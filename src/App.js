@@ -12,13 +12,13 @@ import Details from "./components/Details";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   return (
-    <div className="font-thin h-full dark:bg-slate-700 dark:text-white">
+    <div className=" font-thin h-full dark:bg-slate-900 dark:text-slate-300">
       <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/fruit-dose" element={<FruitDose />} />
-          <Route path="/recipes" element={<Recipes />} />
+          <Route path="/recipes/fruits" element={<Recipes />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/recipes/apple" element={<Apple />} />
           <Route path="/recipes/banana" element={<Banana />} />

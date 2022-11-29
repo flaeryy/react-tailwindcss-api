@@ -21,3 +21,46 @@
   background: white;
   border-color: #ef5628;
 }
+
+.dark .active {
+  background: rgb(15, 23, 42);
+}
+
+@keyframes taadaa {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes moveInleft {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translate(100%);
+  }
+}
+
+.menu {
+  animation: moveInleft 0.5s ease-in;
+}
+
+.menu-close {
+  animation: moveInRight 0.5s ease-in;
+}
