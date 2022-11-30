@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Category() {
   return (
-    <div className="flex flex-col m-auto lg:ml-0">
+    <div className="flex flex-col ml-5 lg:ml-0">
       <h1 className="text-lg font-bold my-5">Order List</h1>
       <div className="flex flex-wrap">
         <Link
